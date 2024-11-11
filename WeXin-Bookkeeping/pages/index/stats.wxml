@@ -1,0 +1,9 @@
+<!--pages/index/stats.wxml-->
+<view>
+  <view class="header">统计</view>
+  <view class="nav-button">
+    <button bindtap="goToHome">明细</button>
+    <button>统计</button>
+  </view>
+
+</view>

@@ -1,0 +1,66 @@
+<!--index.wxml-->
+<view>
+  <view class="header">记账本</view>
+  <view class="nav-button">
+    <button>明细</button>
+    <button bindtap="goToStats">统计</button>
+  </view>
+
+  <scroll-view scroll-y="true" style="height: 70vh; overflow: hidden;">
+    <view wx:for="{{records}}" wx:key="time" class="record-card">
+      <view class="record-time">{{item.date}}</view>
+      <view class="record-amount" style="color: {{item.type === 'income'? 'green': 'red'}};">{{item.type === 'income'? '+':'-'}}￥{{item.amount}}</view>
+      <view style="font-weight: bold;">{{item.money_type}}</view>
+      <view class="record-content">{{item.content}}</view>
+      <view class="action-buttons">
+        <text bindtap="editRecord" data-index="{{index}}">修改</text>
+        <text bindtap="deleteRecord" data-index="{{index}}" style="color: red; margin-left: 10px;">删除</text>
+      </view>
+    </view>
+  </scroll-view>
+
+  <button class="add-button" bindtap="showTan">记一笔</button>
+
+  <view class='tan-bg' wx:if="{{showTan}}" bind:tap="onCancelWrite"></view>
+  <view class='tan-block' wx:if="{{showTan}}">
+    <view>
+      <button class="s-btn {{activeType === 'income' ? 'active' : ''}}" bindtap="setActiveType" data-type="income">入账</button>
+      <button class="s-btn {{activeType === 'expense' ? 'active' : ''}}" bindtap="setActiveType" data-type="expense">支出</button>
+    </view>
+
+    <picker mode="date" value="{{date}}" bindchange="onDateChange">
+      <view class="picker">
+        选择日期：{{date}}
+      </view>
+    </picker>
+    <!-- 消费类型选择 -->
+    <view>
+      <picker mode="selector" range="{{typeOptions}}" bindchange="onTypeChange">
+        <view class="picker">
+          消费类型：{{money_type}}
+        </view>
+      </picker>
+    </view>
+    <view class="input-container">
+      <text class="currency">￥</text>
+      <input type="number" placeholder="请输入金额" value="{{amount}}" bindinput="onInput" />
+    </view>
+    <view>
+      <button style="display: flex; justify-content: center; align-items: center; left: 0; bottom: 220rpx; position: fixed; text-align: center; width: 100px; height: 30px; font-size: 12px; background-color: aliceblue;" bind:tap="addnotes" wx:if="{{content === ''}}">
+        添加备注
+      </button>
+      <view style="left: 0;" wx:if="{{content}}">
+        <text>备注：{{content}}</text>
+      </view>
+    </view>
+    <text wx:if="{{content != ''}}" bind:tap="addnotes" style="color:darkgray;">修改</text>
+  </view>
+
+  <view class='tan-bg' wx:if="{{notes}}"></view>
+  <view class='tan-block' wx:if="{{notes}}">
+    <input type="text" value="{{content}}" placeholder="请输入备注内容" maxlength="30" bindinput="updateCharCount" />
+    <div class="char-count"> {{charCount}}/30</div>
+    <button wx:if="{{notes}}" bind:tap="hidenotes">确定</button>
+  </view>
+  <button wx:if="{{showTan}}" bind:tap="addRecord" style="border-radius: 0; display: flex; position: fixed; bottom: 0; right: 0; height: 150px; width: 80px; align-items: center;">确定</button>
+</view>

@@ -1,0 +1,174 @@
+/**index.wxss**/
+page {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.scrollarea {
+  flex: 1;
+  overflow-y: hidden;
+}
+
+button {
+  background-color: #099109;
+}
+
+.add-button {
+  max-width: 90px;
+  position: fixed;
+  /* 固定位置 */
+  right: 20px;
+  /* 距离右边20px */
+  top: 120px;
+  /* 距离底部20px */
+  background-color: #007AFF;
+  /* 按钮背景颜色 */
+  color: white;
+  /* 按钮字体颜色 */
+  /* border: none; */
+  border-radius: 40px;
+  /* 圆角 */
+  padding: 10px;
+  /* 内边距 */
+}
+
+.tan-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.tan-block {
+  left: 0;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 700rpx;
+  background-color: white;
+}
+
+.action-buttons {
+  display: flex; /* 使用 flexbox */
+  justify-content: flex-end; /* 右对齐 */
+  margin-top: 10px; /* 与内容的间距 */
+}
+
+.action-buttons text {
+  cursor: pointer; /* 显示为手型光标 */
+}
+
+.s-btn {
+  margin-top: 10px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 8px;
+  font-size: 14px;
+  height: 35px;
+  background-color: rgb(199, 197, 197);
+  border: none;
+  border-radius: 3px;
+  transition: background-color 0.3s, transform 0.2s;
+  cursor: pointer;
+  max-width: 80px; /* 设置固定宽度 */
+}
+
+.s-btn:hover {
+  background-color: rgb(169, 167, 167);
+  transform: scale(1.05);
+}
+
+.s-btn.active {
+  background-color: #bcf7bc;
+  /* 绿色背景 */
+}
+
+.input-container {
+  display: flex;
+  /* 使用 Flexbox */
+  align-items: center;
+  /* 垂直居中对齐 */
+  margin: 10px 0;
+}
+
+.currency {
+  margin-right: 5px;
+  /* 货币符号与输入框之间的间距 */
+  font-weight: bold;
+  /* 加粗 */
+}
+
+input {
+  height: 40px;
+  border: none;
+  font-weight: bold;
+  /* 加粗 */
+  border-bottom: 1px solid #ccc;
+  outline: none;
+  width: 100%;
+  /* 输入框宽度 */
+}
+
+.char-count {
+  margin-top: 5px;
+  font-size: 14px;
+  color: #555;
+}
+
+/* 页面背景颜色，衬托卡片效果 */
+page {
+  background-color: #f5f5f5;
+  /* 浅灰色背景 */
+}
+
+/* 卡片样式 */
+.record-card {
+  background-color: #fff;
+  /* 白色背景 */
+  border-radius: 10px;
+  /* 圆角 */
+  border: 1px solid black;
+  padding: 20px;
+  /* 内边距 */
+  margin: 10px 15px;
+  /* 上下左右间距 */
+}
+
+/* 时间行样式 */
+.record-time {
+  font-size: 14px;
+  color: #888;
+  margin-bottom: 10px;
+}
+
+.record-amount {
+  display: flex; /* 使用 flexbox 使元素在一行 */
+  justify-content: flex-end; /* 右对齐 */
+  align-items: center; /* 垂直居中对齐 */
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+/* 备注行样式 */
+.record-content {
+  font-size: 16px;
+  color: #444;
+  white-space: pre-line;
+  /* 保留换行符 */
+  word-wrap: break-word;
+  /* 超长内容自动换行 */
+}
+
+.picker {
+  margin: 10px 0;
+  padding: 10px;
+  background-color: #f0f0f0;
+  border-radius: 5px;
+  text-align: center;
+}
